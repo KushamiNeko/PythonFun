@@ -3,10 +3,10 @@ import unittest
 from datetime import datetime
 from typing import cast
 
-from fun.trading.agent import TradingAgent
-from fun.utils import colors, pretty
-from fun.utils.jsondb import JsonDB
-from fun.utils.testing import parameterized
+from Fun.trading.agent import TradingAgent
+from Fun.utils import colors, pretty
+from Fun.utils.jsondb import JsonDB
+from Fun.utils.testing import parameterized
 
 
 class TestTradingAgent(unittest.TestCase):

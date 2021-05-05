@@ -1,8 +1,8 @@
 import os
 from typing import Iterable
 
-from fun.utils import colors, pretty
-from happy.download.processor import Processor
+from Fun.utils import colors, pretty
+from Download.processor import Processor
 
 
 class InvestingProcessor(Processor):

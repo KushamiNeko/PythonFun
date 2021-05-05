@@ -3,13 +3,13 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-from fun.data.source import (
+from Fun.data.source import (
     FREQUENCY,
     INTRADAY_15MINUTES,
     INTRADAY_30MINUTES,
     INTRADAY_60MINUTES,
 )
-from fun.plotter.plotter import TextPlotter
+from Fun.plotter.plotter import TextPlotter
 from matplotlib import axes
 from matplotlib import font_manager as fm
 

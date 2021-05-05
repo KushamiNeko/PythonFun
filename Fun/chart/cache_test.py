@@ -1,10 +1,10 @@
 import unittest
 from datetime import datetime
 
-from fun.chart.cache import QuotesCache
-from fun.data.source import DAILY, WEEKLY
-from fun.futures.continuous import ContinuousContract
-from fun.utils.testing import parameterized
+from Fun.chart.cache import QuotesCache
+from Fun.data.source import DAILY, WEEKLY
+from Fun.futures.continuous import ContinuousContract
+from Fun.utils.testing import parameterized
 
 
 class TestQuotesCache(unittest.TestCase):

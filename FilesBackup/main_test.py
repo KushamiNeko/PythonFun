@@ -1,7 +1,7 @@
 import os
 import unittest
 
-import main
+from FilesBackup import main
 
 
 class TestFileSync(unittest.TestCase):
@@ -99,19 +99,19 @@ class TestFileSync(unittest.TestCase):
 
     def test_files_differ_files(self):
         outb = main.diff(
-                os.path.join(self.root, "src.txt"), os.path.join(self.root, "dst.txt")
+            os.path.join(self.root, "src.txt"), os.path.join(self.root, "dst.txt")
         )
 
         self.assertEqual(outb, "")
 
         outb = main.diff(
-                os.path.join(self.root, "src.txt"), os.path.join(self.root, "differ.txt")
+            os.path.join(self.root, "src.txt"), os.path.join(self.root, "differ.txt")
         )
 
         self.differ_files_helper(outb)
 
         outb = main.diff(
-                os.path.join(self.root, "differ.txt"), os.path.join(self.root, "src.txt")
+            os.path.join(self.root, "differ.txt"), os.path.join(self.root, "src.txt")
         )
 
         self.differ_files_helper(outb)

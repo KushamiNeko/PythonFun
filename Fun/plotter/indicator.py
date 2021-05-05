@@ -4,7 +4,7 @@ from typing import List, NewType, Optional, Union
 
 import numpy as np
 import pandas as pd
-from fun.plotter.plotter import LinePlotter
+from Fun.plotter.plotter import LinePlotter
 from matplotlib import axes
 
 

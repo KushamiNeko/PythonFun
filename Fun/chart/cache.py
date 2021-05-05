@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import cast, Optional
 
 import pandas as pd
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 
 class QuotesCache:

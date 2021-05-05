@@ -1,8 +1,8 @@
 import time
 import unittest
 
-from fun.trading.book import TradingBook
-from fun.utils.testing import parameterized
+from Fun.trading.book import TradingBook
+from Fun.utils.testing import parameterized
 
 
 class TestBook(unittest.TestCase):

@@ -3,11 +3,11 @@ from typing import List, Optional, Tuple
 from datetime import datetime
 import numpy as np
 import pandas as pd
-from fun.data.source import FREQUENCY, WEEKLY, DAILY
-from fun.plotter.plotter import TextPlotter
-from fun.trading.transaction import FuturesTransaction
-from fun.trading.agent import TradingAgent
-from fun.utils import colors
+from Fun.data.source import FREQUENCY, WEEKLY, DAILY
+from Fun.plotter.plotter import TextPlotter
+from Fun.trading.transaction import FuturesTransaction
+from Fun.trading.agent import TradingAgent
+from Fun.utils import colors
 from matplotlib import axes, font_manager as fm
 
 

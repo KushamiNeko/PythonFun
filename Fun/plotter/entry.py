@@ -4,9 +4,9 @@ from typing import Optional
 import pandas as pd
 from matplotlib import axes
 
-from fun.data.source import DAILY, FREQUENCY
-from fun.plotter.plotter import Plotter
-from fun.utils import colors
+from Fun.data.source import DAILY, FREQUENCY
+from Fun.plotter.plotter import Plotter
+from Fun.utils import colors
 
 
 class EntryZone(Plotter):

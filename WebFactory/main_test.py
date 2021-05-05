@@ -2,8 +2,8 @@ import os
 import subprocess
 import unittest
 
-from fun.utils import colors, pretty
-from happy.web_factory.main import processorFactory
+from Fun.utils import colors, pretty
+from WebFactory.main import processorFactory
 
 
 class TestMain(unittest.TestCase):

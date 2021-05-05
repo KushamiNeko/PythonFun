@@ -5,9 +5,9 @@ from datetime import datetime
 from typing import List, NewType, Tuple
 
 import pandas as pd
-from fun.data.barchart import BarchartContract, Barchart
-from fun.data.source import DAILY, DataSource, FREQUENCY
-from fun.utils import colors, pretty
+from Fun.data.barchart import BarchartContract, Barchart
+from Fun.data.source import DAILY, DataSource, FREQUENCY
+from Fun.utils import colors, pretty
 
 CONTRACT_MONTHS = NewType("CONTRACT_MONTHS", str)
 

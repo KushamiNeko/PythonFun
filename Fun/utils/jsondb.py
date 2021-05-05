@@ -2,7 +2,7 @@ import json
 import os
 from typing import Dict, List, Optional
 
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 
 class JsonDB:

@@ -7,8 +7,8 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple, cast
 
 from flask import request
-from fun.chart.preset import CandleSticksPreset
-from fun.data.source import (
+from Fun.chart.preset import CandleSticksPreset
+from Fun.data.source import (
     DAILY,
     FREQUENCY,
     INTRADAY_15MINUTES,
@@ -17,10 +17,10 @@ from fun.data.source import (
     MONTHLY,
     WEEKLY,
 )
-from fun.plotter.plotter import Plotter
-from fun.plotter.records import LeverageRecords
-from fun.plotter.stop import StopOrder
-from fun.trading.agent import TradingAgent
+from Fun.plotter.plotter import Plotter
+from Fun.plotter.records import LeverageRecords
+from Fun.plotter.stop import StopOrder
+from Fun.trading.agent import TradingAgent
 
 
 class ChartHandler:

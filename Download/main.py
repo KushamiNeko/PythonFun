@@ -2,12 +2,12 @@ import argparse
 import re
 from typing import Any, Dict, List, Tuple, cast
 
-from fun.utils import colors, pretty
-from happy.download.barchart import BarchartFuturesProcessor, BarchartStocksProcessor
-from happy.download.investing import InvestingProcessor
+from Fun.utils import colors, pretty
+from Download.barchart import BarchartFuturesProcessor, BarchartStocksProcessor
+from Download.investing import InvestingProcessor
 
 # from happy.download.stockcharts import StockChartsProcessor
-from happy.download.yahoo import YahooProcessor
+from Download.yahoo import YahooProcessor
 
 
 def args_parse() -> Dict[str, Any]:

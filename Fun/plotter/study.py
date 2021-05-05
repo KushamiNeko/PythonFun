@@ -8,7 +8,7 @@ import pandas as pd
 from matplotlib import axes
 from matplotlib import font_manager as fm
 
-from fun.data.source import (
+from Fun.data.source import (
     FREQUENCY,
     DAILY,
     WEEKLY,
@@ -16,8 +16,8 @@ from fun.data.source import (
     INTRADAY_30MINUTES,
     INTRADAY_15MINUTES,
 )
-from fun.plotter.plotter import Plotter, TextPlotter
-from fun.utils import colors, pretty
+from Fun.plotter.plotter import Plotter, TextPlotter
+from Fun.utils import colors, pretty
 
 
 def read_notes(

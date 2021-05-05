@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 from typing import Dict
 
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 from matplotlib import font_manager as fm
 
 _FONTS = sorted(fm.findSystemFonts(fontpaths=None), key=lambda x: os.path.basename(x))

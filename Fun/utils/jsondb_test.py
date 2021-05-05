@@ -2,9 +2,9 @@ import os
 import unittest
 from typing import cast
 
-from fun.utils import colors, pretty
-from fun.utils.jsondb import JsonDB
-from fun.utils.testing import parameterized
+from Fun.utils import colors, pretty
+from Fun.utils.jsondb import JsonDB
+from Fun.utils.testing import parameterized
 
 
 class TestJsonDB(unittest.TestCase):

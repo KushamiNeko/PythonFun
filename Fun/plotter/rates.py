@@ -2,10 +2,10 @@ from datetime import datetime
 
 # import numpy as np
 import pandas as pd
-from fun.data.barchart import Barchart
-from fun.data.source import DAILY, FREQUENCY, MONTHLY, WEEKLY
-from fun.plotter.plotter import Plotter
-from fun.utils import colors
+from Fun.data.barchart import Barchart
+from Fun.data.source import DAILY, FREQUENCY, MONTHLY, WEEKLY
+from Fun.plotter.plotter import Plotter
+from Fun.utils import colors
 from matplotlib import axes
 
 

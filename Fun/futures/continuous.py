@@ -3,13 +3,13 @@ from datetime import datetime
 from typing import List, Optional
 
 import pandas as pd
-from fun.data.barchart import (
+from Fun.data.barchart import (
     Barchart,
     BarchartContract15Minutes,
     BarchartContract30Minutes,
     BarchartContract60Minutes,
 )
-from fun.data.source import (
+from Fun.data.source import (
     DAILY,
     FREQUENCY,
     INTRADAY_15MINUTES,
@@ -20,7 +20,7 @@ from fun.data.source import (
     daily_to_monthly,
     daily_to_weekly,
 )
-from fun.futures.contract import (
+from Fun.futures.contract import (
     ALL_CONTRACT_MONTHS,
     BARCHART,
     CONTRACT_MONTHS,
@@ -29,7 +29,7 @@ from fun.futures.contract import (
     Contract,
     contract_list,
 )
-from fun.futures.rolling import (
+from Fun.futures.rolling import (
     DIFFERENCE,
     RATIO,
     FirstOfMonth,
@@ -37,7 +37,7 @@ from fun.futures.rolling import (
     RollingMethod,
     VolumeAndOpenInterest,
 )
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 
 class ContinuousContract:

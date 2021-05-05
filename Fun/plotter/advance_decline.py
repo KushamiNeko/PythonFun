@@ -1,10 +1,10 @@
 from datetime import datetime
 
 import pandas as pd
-from fun.data.cumulative import BarchartCumulativeSum
-from fun.data.source import FREQUENCY
-from fun.plotter.plotter import LinePlotter
-from fun.utils import colors
+from Fun.data.cumulative import BarchartCumulativeSum
+from Fun.data.source import FREQUENCY
+from Fun.plotter.plotter import LinePlotter
+from Fun.utils import colors
 from matplotlib import axes
 
 

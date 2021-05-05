@@ -4,7 +4,7 @@ import readline  # noqa # pylint: disable=unused-import
 import string
 from typing import Dict
 
-from fun.utils import pretty
+from Fun.utils import pretty
 
 
 def key_value_input(hex_rgb: str, message: str) -> Dict[str, str]:

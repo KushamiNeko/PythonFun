@@ -3,8 +3,8 @@ import unittest
 from datetime import datetime
 
 import pandas as pd
-from fun.data.barchart import Barchart, BarchartContract
-from fun.data.source import (
+from Fun.data.barchart import Barchart, BarchartContract
+from Fun.data.source import (
     DAILY,
     WEEKLY,
     CoinAPI,
@@ -13,7 +13,7 @@ from fun.data.source import (
     StockCharts,
     Yahoo,
 )
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 
 class TestSource(unittest.TestCase):

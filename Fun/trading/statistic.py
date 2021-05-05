@@ -4,7 +4,7 @@ import math
 from datetime import datetime
 from typing import Dict, List
 
-from fun.trading.trade import FuturesTrade
+from Fun.trading.trade import FuturesTrade
 
 
 class Statistic:

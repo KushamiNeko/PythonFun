@@ -4,7 +4,7 @@ from typing import List, NewType, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
-from fun.plotter.plotter import Plotter
+from Fun.plotter.plotter import Plotter
 
 CHART_SIZE = NewType("CHART_SIZE", int)
 LARGE_CHART = CHART_SIZE(0)

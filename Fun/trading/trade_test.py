@@ -1,8 +1,8 @@
 import unittest
 
-from fun.trading.trade import FuturesTrade
-from fun.trading.transaction import FuturesTransaction
-from fun.utils.testing import parameterized
+from Fun.trading.trade import FuturesTrade
+from Fun.trading.transaction import FuturesTransaction
+from Fun.utils.testing import parameterized
 
 
 class TestFuturesTrade(unittest.TestCase):

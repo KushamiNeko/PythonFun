@@ -4,8 +4,8 @@ from datetime import datetime, timedelta, timezone
 from typing import Iterable
 
 import requests
-from fun.utils import colors, pretty
-from happy.download.processor import Processor
+from Fun.utils import colors, pretty
+from Download.processor import Processor
 
 
 class YahooProcessor(Processor):

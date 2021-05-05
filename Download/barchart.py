@@ -3,15 +3,15 @@ import re
 from datetime import datetime
 from typing import Iterable, NewType, Optional
 
-from fun.futures.contract import (
+from Fun.futures.contract import (
     ALL_CONTRACT_MONTHS,
     CONTRACT_MONTHS,
     EVEN_CONTRACT_MONTHS,
     FINANCIAL_CONTRACT_MONTHS,
-    month_from_futures_month_code,
 )
-from fun.utils import colors, pretty
-from happy.download.processor import Processor
+from Fun.utils import colors, pretty
+
+from Download.processor import Processor
 
 BARCHART_PAGE = NewType("BARCHART_PAGE", int)
 HISTORICAL_PAGE = BARCHART_PAGE(0)

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import pandas as pd
-from fun.plotter.plotter import Plotter
+from Fun.plotter.plotter import Plotter
 from matplotlib import axes
 
 

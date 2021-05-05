@@ -8,7 +8,7 @@ from typing import NewType
 import numpy as np
 import pandas as pd
 import requests
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 FREQUENCY = NewType("FREQUENCY", int)
 

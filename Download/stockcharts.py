@@ -1,6 +1,6 @@
 from typing import Iterable
 
-from happy.download.processor import Processor
+from Download.processor import Processor
 
 
 class StockChartsProcessor(Processor):

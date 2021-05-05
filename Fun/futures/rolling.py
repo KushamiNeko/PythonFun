@@ -3,8 +3,8 @@ from datetime import datetime
 from typing import NewType, cast
 
 import pandas as pd
-from fun.futures.contract import Contract
-from fun.utils import colors, pretty
+from Fun.futures.contract import Contract
+from Fun.utils import colors, pretty
 
 ADJUSTMENT_METHOD = NewType("ADJUSTMENT_METHOD", int)
 

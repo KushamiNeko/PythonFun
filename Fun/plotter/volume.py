@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from fun.plotter.plotter import Plotter
+from Fun.plotter.plotter import Plotter
 from matplotlib import axes, patches
 from matplotlib.collections import PatchCollection
 

@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 
 import pandas as pd
-from fun.data.source import (
+from Fun.data.source import (
     DAILY,
     FREQUENCY,
     INTRADAY_15MINUTES,

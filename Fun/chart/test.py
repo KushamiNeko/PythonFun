@@ -1,10 +1,10 @@
 from datetime import datetime
 
-from fun.chart.base import MEDIUM_CHART
-from fun.chart.setting import Setting
-from fun.chart.static import TradingChart
-from fun.data.source import DAILY
-from fun.futures.continuous import ContinuousContract
+from Fun.chart.base import MEDIUM_CHART
+from Fun.chart.setting import Setting
+from Fun.chart.static import TradingChart
+from Fun.data.source import DAILY
+from Fun.futures.continuous import ContinuousContract
 
 if __name__ == "__main__":
     c = ContinuousContract()

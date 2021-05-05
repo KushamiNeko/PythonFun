@@ -6,10 +6,10 @@ import pandas as pd
 from matplotlib import axes
 from matplotlib import font_manager as fm
 
-from fun.data.source import FREQUENCY
-from fun.plotter.plotter import Plotter
-from fun.plotter.volatility import VolatilitySource
-from fun.utils import colors
+from Fun.data.source import FREQUENCY
+from Fun.plotter.plotter import Plotter
+from Fun.plotter.volatility import VolatilitySource
+from Fun.utils import colors
 
 
 class Level(VolatilitySource, Plotter):

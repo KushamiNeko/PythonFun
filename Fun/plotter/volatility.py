@@ -8,9 +8,9 @@ from matplotlib import axes
 
 # from matplotlib import font_manager as fm
 
-from fun.data.source import FREQUENCY, DataSource, InvestingCom, StockCharts, Yahoo
-from fun.plotter.plotter import LinePlotter
-from fun.utils import colors
+from Fun.data.source import FREQUENCY, DataSource, InvestingCom, StockCharts, Yahoo
+from Fun.plotter.plotter import LinePlotter
+from Fun.utils import colors
 
 
 class VolatilitySource:

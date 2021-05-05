@@ -1,7 +1,7 @@
 import unittest
 
-from fun.trading.order import TransactionOrder
-from fun.utils.testing import parameterized
+from Fun.trading.order import TransactionOrder
+from Fun.utils.testing import parameterized
 
 
 class TestTransactionOrder(unittest.TestCase):

@@ -3,9 +3,9 @@ from typing import Dict, List, NewType, Optional
 
 import numpy as np
 import pandas as pd
-from fun.data.source import DAILY, FREQUENCY, Yahoo
-from fun.plotter.plotter import TextPlotter
-from fun.utils import colors, pretty
+from Fun.data.source import DAILY, FREQUENCY, Yahoo
+from Fun.plotter.plotter import TextPlotter
+from Fun.utils import colors, pretty
 from matplotlib import axes, font_manager as fm
 
 DAY_ACTION = NewType("DAY_ACTION", int)

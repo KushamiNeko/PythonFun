@@ -3,7 +3,7 @@ import subprocess
 from abc import ABCMeta, abstractmethod
 from typing import Iterable, cast
 
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 
 class Processor(metaclass=ABCMeta):

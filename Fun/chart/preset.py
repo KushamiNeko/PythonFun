@@ -7,13 +7,13 @@ from typing import Any, Dict, List, Optional, Tuple, cast
 
 import pandas as pd
 
-from fun.chart.base import CHART_SIZE, MEDIUM_CHART
-from fun.chart.cache import QuotesCache
-from fun.chart.setting import Setting
-from fun.chart.static import TradingChart
-from fun.chart.theme import MagicalTheme, Theme
-from fun.data.barchart import Barchart
-from fun.data.source import (
+from Fun.chart.base import CHART_SIZE, MEDIUM_CHART
+from Fun.chart.cache import QuotesCache
+from Fun.chart.setting import Setting
+from Fun.chart.static import TradingChart
+from Fun.chart.theme import MagicalTheme, Theme
+from Fun.data.barchart import Barchart
+from Fun.data.source import (
     DAILY,
     FREQUENCY,
     INTRADAY_15MINUTES,
@@ -27,27 +27,27 @@ from fun.data.source import (
     StockCharts,
     Yahoo,
 )
-from fun.futures.continuous import ContinuousContract
-from fun.plotter.advance_decline import AdvanceDeclineLine
-from fun.plotter.background import BackgroundTimeRangeMark
-from fun.plotter.candlesticks import CandleSticks
-from fun.plotter.entry import EntryZone
-from fun.plotter.equal_weighted import EqualWeightedRelativeStrength
-from fun.plotter.ibd import DistributionsDay
-from fun.plotter.indicator import (
+from Fun.futures.continuous import ContinuousContract
+from Fun.plotter.advance_decline import AdvanceDeclineLine
+from Fun.plotter.background import BackgroundTimeRangeMark
+from Fun.plotter.candlesticks import CandleSticks
+from Fun.plotter.entry import EntryZone
+from Fun.plotter.equal_weighted import EqualWeightedRelativeStrength
+from Fun.plotter.ibd import DistributionsDay
+from Fun.plotter.indicator import (
     BollingerBand,
     SimpleMovingAverage,
     ExponentialMovingAverage,
     ExponentialMovingAverageEnvelope,
 )
-from fun.plotter.level import Level
-from fun.plotter.plotter import Plotter
-from fun.plotter.quote import LastQuote
-from fun.plotter.rates import InterestRatesSummary
-from fun.plotter.study import NoteMarker, StudyZone, read_notes
-from fun.plotter.volatility import VolatilityRealBodyContraction, VolatilitySummary
-from fun.plotter.volume import Volume
-from fun.plotter.zone import VolatilityZone
+from Fun.plotter.level import Level
+from Fun.plotter.plotter import Plotter
+from Fun.plotter.quote import LastQuote
+from Fun.plotter.rates import InterestRatesSummary
+from Fun.plotter.study import NoteMarker, StudyZone, read_notes
+from Fun.plotter.volatility import VolatilityRealBodyContraction, VolatilitySummary
+from Fun.plotter.volume import Volume
+from Fun.plotter.zone import VolatilityZone
 
 
 class CandleSticksPreset:

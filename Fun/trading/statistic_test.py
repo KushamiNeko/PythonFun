@@ -2,10 +2,10 @@ import math
 import unittest
 from datetime import datetime
 
-from fun.trading.statistic import Statistic
-from fun.trading.trade import FuturesTrade
-from fun.trading.transaction import FuturesTransaction
-from fun.utils.testing import parameterized
+from Fun.trading.statistic import Statistic
+from Fun.trading.trade import FuturesTrade
+from Fun.trading.transaction import FuturesTransaction
+from Fun.utils.testing import parameterized
 
 
 class TestStatistic(unittest.TestCase):

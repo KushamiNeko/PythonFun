@@ -1,7 +1,7 @@
 import unittest
 
-from fun.utils import pretty
-from fun.utils.testing import parameterized
+from Fun.utils import pretty
+from Fun.utils.testing import parameterized
 
 
 class TestHelper(unittest.TestCase):

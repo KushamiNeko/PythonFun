@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-from fun.futures.contract import (
+from Fun.futures.contract import (
     ALL_CONTRACT_MONTHS,
     BARCHART,
     Contract,
@@ -10,7 +10,7 @@ from fun.futures.contract import (
     QUANDL,
     contract_list,
 )
-from fun.utils.testing import parameterized
+from Fun.utils.testing import parameterized
 
 
 class TestContract(unittest.TestCase):

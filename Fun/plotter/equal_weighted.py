@@ -1,10 +1,10 @@
 from datetime import datetime
 
 import pandas as pd
-from fun.data.barchart import Barchart
-from fun.data.source import FREQUENCY, Yahoo
-from fun.plotter.plotter import LinePlotter
-from fun.utils import colors
+from Fun.data.barchart import Barchart
+from Fun.data.source import FREQUENCY, Yahoo
+from Fun.plotter.plotter import LinePlotter
+from Fun.utils import colors
 from matplotlib import axes
 
 

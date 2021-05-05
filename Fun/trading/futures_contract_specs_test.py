@@ -1,6 +1,6 @@
 import unittest
 
-from fun.trading.futures_contract_specs import FuturesContractSpecs
+from Fun.trading.futures_contract_specs import FuturesContractSpecs
 
 
 class TestFuturesSpecs(unittest.TestCase):

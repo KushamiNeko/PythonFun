@@ -1,5 +1,5 @@
 import pandas as pd
-from fun.data.source import (
+from Fun.data.source import (
     DAILY,
     FREQUENCY,
     INTRADAY_15MINUTES,
@@ -8,7 +8,7 @@ from fun.data.source import (
     MONTHLY,
     WEEKLY,
 )
-from fun.plotter.plotter import Plotter
+from Fun.plotter.plotter import Plotter
 from matplotlib import axes
 
 

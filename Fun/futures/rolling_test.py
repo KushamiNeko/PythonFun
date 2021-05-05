@@ -1,15 +1,15 @@
 import unittest
 from datetime import datetime
 
-from fun.futures.contract import (
+from Fun.futures.contract import (
     ALL_CONTRACT_MONTHS,
     BARCHART,
     Contract,
     EVEN_CONTRACT_MONTHS,
     FINANCIAL_CONTRACT_MONTHS,
 )
-from fun.futures.rolling import FirstOfMonth, LastNTradingDays, VolumeAndOpenInterest
-from fun.utils.testing import parameterized
+from Fun.futures.rolling import FirstOfMonth, LastNTradingDays, VolumeAndOpenInterest
+from Fun.utils.testing import parameterized
 
 
 class TestRolling(unittest.TestCase):

@@ -4,12 +4,12 @@ from typing import List, Optional, Tuple, Union
 import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
-from fun.chart import base
-from fun.chart.base import LARGE_CHART, MEDIUM_CHART, SMALL_CHART
-from fun.chart.setting import Setting
-from fun.chart.theme import Theme
-from fun.chart.ticker import StepTicker, Ticker, TimeTicker
-from fun.plotter.plotter import Plotter
+from Fun.chart import base
+from Fun.chart.base import LARGE_CHART, MEDIUM_CHART, SMALL_CHART
+from Fun.chart.setting import Setting
+from Fun.chart.theme import Theme
+from Fun.chart.ticker import StepTicker, Ticker, TimeTicker
+from Fun.plotter.plotter import Plotter
 from matplotlib import axes, figure
 
 matplotlib.use("agg")

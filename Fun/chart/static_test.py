@@ -2,10 +2,10 @@ import io
 import unittest
 from datetime import datetime
 
-from fun.chart.static import TradingChart
-from fun.data.source import DAILY, WEEKLY
-from fun.futures.continuous import ContinuousContract
-from fun.utils.testing import parameterized
+from Fun.chart.static import TradingChart
+from Fun.data.source import DAILY, WEEKLY
+from Fun.futures.continuous import ContinuousContract
+from Fun.utils.testing import parameterized
 
 
 class TestStaticTradingChart(unittest.TestCase):

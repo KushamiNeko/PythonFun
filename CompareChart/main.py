@@ -4,27 +4,38 @@ import argparse
 import os
 import re
 
-import config
 import cv2
 import numpy as np
-from fun.utils import colors, pretty
-from happy.compare_charts.chart import Charts
-from happy.compare_charts.cover import Cover
+from Fun.utils import colors, pretty
+
+from CompareChart import config
+from CompareChart.chart import Charts
+from CompareChart.cover import Cover
 
 
 def parse_arg():
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-            "--symbols", metavar="", type=str, nargs="+", help="symbols to compare",
+        "--symbols",
+        metavar="",
+        type=str,
+        nargs="+",
+        help="symbols to compare",
     )
 
     parser.add_argument(
-            "--year", metavar="", type=str, help="year of the chart",
+        "--year",
+        metavar="",
+        type=str,
+        help="year of the chart",
     )
 
     parser.add_argument(
-            "--frequency", metavar="", type=str, help="chart frequency",
+        "--frequency",
+        metavar="",
+        type=str,
+        help="chart frequency",
     )
 
     args = vars(parser.parse_args())

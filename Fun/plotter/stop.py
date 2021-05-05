@@ -1,9 +1,9 @@
 from typing import List
 
 import pandas as pd
-from fun.plotter.plotter import Plotter
-from fun.trading.order import TransactionOrder
-from fun.utils import colors
+from Fun.plotter.plotter import Plotter
+from Fun.trading.order import TransactionOrder
+from Fun.utils import colors
 from matplotlib import axes
 
 

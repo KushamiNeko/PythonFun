@@ -4,9 +4,9 @@ import traceback
 from flask import Flask
 from flask_cors import cross_origin
 
-from fun.utils import colors, pretty
-from happy.market_wizards.handlers.chart import ChartHandler
-from happy.market_wizards.handlers.trade import TradeHandler
+from Fun.utils import colors, pretty
+from MarketWizards.handlers.chart import ChartHandler
+from MarketWizards.handlers.trade import TradeHandler
 
 app = Flask(__name__)
 

@@ -2,8 +2,8 @@ import time
 import unittest
 from datetime import datetime
 
-from fun.trading.transaction import FuturesTransaction
-from fun.utils.testing import parameterized
+from Fun.trading.transaction import FuturesTransaction
+from Fun.utils.testing import parameterized
 
 
 class TestFuturesTransaction(unittest.TestCase):

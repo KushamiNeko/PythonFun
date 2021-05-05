@@ -1,9 +1,9 @@
 import os
 import re
-from typing import Any, Dict, List, cast, Tuple
+from typing import Any, Dict, List, cast
 
 from flask import request
-from fun.trading.agent import TradingAgent
+from Fun.trading.agent import TradingAgent
 
 _ROOT = os.path.join(
     # cast(str, os.getenv("HOME")), "Documents", "database", "testing", "json"

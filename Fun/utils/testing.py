@@ -1,7 +1,7 @@
 import functools
 from typing import Any, Dict, List
 
-from fun.utils import colors, pretty
+from Fun.utils import colors, pretty
 
 
 def parameterized(sets: List[Dict[str, Any]]):

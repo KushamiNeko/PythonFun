@@ -1,8 +1,8 @@
 from datetime import datetime
 
 import pandas as pd
-from fun.data.barchart import Barchart
-from fun.data.source import FREQUENCY
+from Fun.data.barchart import Barchart
+from Fun.data.source import FREQUENCY
 
 
 class BarchartCumulativeSum(Barchart):

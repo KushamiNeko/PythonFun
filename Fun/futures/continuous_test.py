@@ -2,16 +2,16 @@ import unittest
 from datetime import datetime
 
 import numpy as np
-from fun.data.source import DAILY
-from fun.futures.continuous import ContinuousContract
-from fun.futures.contract import (
+from Fun.data.source import DAILY
+from Fun.futures.continuous import ContinuousContract
+from Fun.futures.contract import (
     ALL_CONTRACT_MONTHS,
     BARCHART,
     EVEN_CONTRACT_MONTHS,
     FINANCIAL_CONTRACT_MONTHS,
     contract_list,
 )
-from fun.futures.rolling import (
+from Fun.futures.rolling import (
     DIFFERENCE,
     FirstOfMonth,
     LastNTradingDays,
@@ -19,7 +19,7 @@ from fun.futures.rolling import (
     RATIO,
     VolumeAndOpenInterest,
 )
-from fun.utils.testing import parameterized
+from Fun.utils.testing import parameterized
 
 
 class TestContinuousContract(unittest.TestCase):
