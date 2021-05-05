@@ -1,0 +1,13 @@
+images
+venv
+env
+.*cache*
+_*cache*
+*.txt
+*.png
+.vscode
+testing
+.idea
+*png
+*html
+.pytype
