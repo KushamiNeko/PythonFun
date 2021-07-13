@@ -160,3 +160,72 @@ class VolumeAndOpenInterest(RollingMethod):
             datetime,
             cross.index[0].to_pydatetime(),
         )
+
+
+if __name__ == "__main__":
+    from Fun.data.source import (
+        DAILY,
+        FREQUENCY,
+        INTRADAY_15MINUTES,
+        INTRADAY_60MINUTES,
+        INTRADAY_30MINUTES,
+        MONTHLY,
+        WEEKLY,
+        DataSource,
+    )
+
+    from Fun.futures.contract import Contract, FINANCIAL_CONTRACT_MONTHS
+
+    from Fun.data.barchart import BarchartContract
+    from datetime import datetime
+
+    bdfc = Contract("znh20", FINANCIAL_CONTRACT_MONTHS)
+    fdfc = Contract("znz19", FINANCIAL_CONTRACT_MONTHS)
+
+    bdf = bdfc.dataframe()
+    fdf = fdfc.dataframe()
+
+    # print(bdf["open interest"])
+    # print(fdf["open interest"])
+
+    # print(bdf.dataframe().dtypes)
+    # print(type(bdf.dataframe().index))
+
+    # print(fdf.dataframe().dtypes)
+    # print(type(fdf.dataframe().index))
+
+    print(
+        (
+            bdf.loc[bdf.index.isin(fdf.index), "volume"]
+            >= fdf.loc[fdf.index.isin(bdf.index), "volume"]
+        )
+        & (bdf.loc[bdf.index.isin(fdf.index), "volume"] != 0)
+        & (fdf.loc[fdf.index.isin(bdf.index), "volume"] != 0)
+    )
+
+    print(
+        (
+            bdf.loc[bdf.index.isin(fdf.index), "open interest"]
+            >= fdf.loc[fdf.index.isin(bdf.index), "open interest"]
+        )
+        # & (bdf.loc[bdf.index.isin(fdf.index), "open interest"] != 0)
+        # & (fdf.loc[fdf.index.isin(bdf.index), "open interest"] != 0)
+    )
+
+    # volume = (
+    #         (
+    #             bdf.loc[bdf.index.isin(fdf.index), "volume"]
+    #             >= fdf.loc[fdf.index.isin(bdf.index), "volume"]
+    #         )
+    #         & (bdf.loc[bdf.index.isin(fdf.index), "volume"] != 0)
+    #         & (fdf.loc[fdf.index.isin(bdf.index), "volume"] != 0)
+    # )
+
+    # start = datetime.strptime("20200101", "%Y%m%d")
+    # end = datetime.strptime("20210101", "%Y%m%d")
+
+    # src = BarchartContract()
+    # bdf = src.read(start=start, end=end, symbol="znm21", frequency=DAILY)
+    # fdf = src.read(start=start, end=end, symbol="znh21", frequency=DAILY)
+
+    # print(VolumeAndOpenInterest()._rolling_date(fdf, bdf))

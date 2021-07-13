@@ -119,6 +119,9 @@ class DataSource(metaclass=ABCMeta):
         cols = {k: k.lower() for k in df.columns}
         return df.rename(columns=cols)
 
+    def _additional_processing(self, df: pd.DataFrame) -> pd.DataFrame:
+        return df
+
     def read(
         self, start: datetime, end: datetime, symbol: str, frequency: FREQUENCY
     ) -> pd.DataFrame:
@@ -140,6 +143,8 @@ class DataSource(metaclass=ABCMeta):
             df.loc[:, "timestamp"].apply(self._timestamp_preprocessing)
             # .astype(np.datetime64)
         )
+
+        df = self._additional_processing(df)
 
         df = df.set_index("timestamp")
 

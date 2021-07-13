@@ -31,7 +31,7 @@ def args_parse() -> Dict[str, Any]:
         type=bool,
         nargs="?",
         const=True,
-        default=False,
+        default=True,
         help="full refresh copy",
     )
 

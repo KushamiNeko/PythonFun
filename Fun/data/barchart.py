@@ -1,7 +1,7 @@
 import os
 import re
-from datetime import datetime
-
+from datetime import datetime, timedelta
+import numpy as np
 import pandas as pd
 from Fun.data.source import (
     DAILY,
@@ -105,6 +105,10 @@ class Barchart(DataSource):
         if m is not None:
             return datetime.strptime(m.group(1), r"%Y-%m-%dT%H:%M:%S")
 
+        # tradingview
+        if re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$", x) is not None:
+            return (datetime.strptime(x, r"%Y-%m-%dT%H:%M:%SZ") - timedelta(hours=6)).replace(hour=0, minute=0)
+
         raise ValueError(f"unknown timestamp format: {x}")
 
     def _url(
@@ -162,6 +166,17 @@ class Barchart(DataSource):
         if "tradingDay" in columns:
             df = df.drop("tradingDay", axis=1)
 
+        if "Volume MA" in columns:
+            df = df.drop("Volume MA", axis=1)
+
+        return df
+
+    def _additional_processing(self, df: pd.DataFrame) -> pd.DataFrame:
+
+        # tradingview
+        if "open interest" not in df.columns:
+            df["open interest"] = 0.0
+
         return df
 
     def _rename_columns(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -186,6 +201,13 @@ class Barchart(DataSource):
         # barchart ondemand
         if "openInterest" in columns:
             cols["openInterest"] = "open interest"
+
+        # tradingview
+        if "time" in columns:
+            cols["time"] = "timestamp"
+
+        if "Volume" in columns:
+            cols["Volume"] = "volume"
 
         return df.rename(columns=cols)
 
@@ -265,11 +287,14 @@ class BarchartContract15Minutes(Barchart):
         )
 
 
-# if __name__ == "__main__":
-#     start = datetime.strptime("20200101", "%Y%m%d")
-#     end = datetime.strptime("20210101", "%Y%m%d")
+if __name__ == "__main__":
+    start = datetime.strptime("20200101", "%Y%m%d")
+    end = datetime.strptime("20210101", "%Y%m%d")
 
-#     src = BarchartContract30Minutes()
-#     # df = src._read_data(start=start, end=end, symbol="znz20")
+    src = BarchartContract()
+    df = src.read(start=start, end=end, symbol="znh21", frequency=DAILY)
+    print(type(df.index))
+    print(df.dtypes)
+
 #     df = src.read(start=start, end=end, symbol="znz20", frequency=INTRADAY_30MINUTES)
-#     print(df.tail(50))
+    # print(df.tail(50))
