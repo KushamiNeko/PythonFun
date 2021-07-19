@@ -36,6 +36,7 @@ from Fun.plotter.equal_weighted import EqualWeightedRelativeStrength
 from Fun.plotter.ibd import DistributionsDay
 from Fun.plotter.indicator import (
     BollingerBand,
+    KeltnerChannels,
     SimpleMovingAverage,
     ExponentialMovingAverage,
     ExponentialMovingAverageEnvelope,
@@ -950,6 +951,21 @@ class KushamiNekoController(PresetController):
                             line_width=self._setting.linewidth(),
                         ),
                     ]
+                )
+
+            if self._parameters.get("KeltnerChannels", "").lower() == "true":
+                plotters.append(
+                    KeltnerChannels(
+                        quotes_n=10,
+                        atr_n=10,
+                        m=1.5,
+                        quotes=self._cache.full_quotes(),
+                        slice_start=self._cache.quotes().index[0],
+                        slice_end=self._cache.quotes().index[-1],
+                        line_color=self.get_theme().get_color("bb0"),
+                        line_alpha=0.6,
+                        line_width=self._setting.linewidth(),
+                    )
                 )
 
             if self._parameters.get("Studies", "").lower() == "true":

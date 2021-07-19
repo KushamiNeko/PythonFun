@@ -17,7 +17,7 @@ class Indicator(LinePlotter):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
-        zorder: int=7,
+        zorder: int = 7,
     ) -> None:
         assert quotes is not None
 
@@ -309,3 +309,56 @@ class CandleRange(Indicator):
             height = height.rolling(self._moving_average).mean()
 
         return height
+
+
+class KeltnerChannels(Indicator):
+    def __init__(
+        self,
+        quotes_n: int,
+        atr_n: int,
+        m: float,
+        quotes: pd.DataFrame,
+        slice_start: Optional[datetime] = None,
+        slice_end: Optional[datetime] = None,
+        line_color: str = "k",
+        line_alpha: float = 1.0,
+        line_width: float = 10.0,
+    ) -> None:
+        super().__init__(
+            quotes=quotes,
+            slice_start=slice_start,
+            slice_end=slice_end,
+            line_color=line_color,
+            line_alpha=line_alpha,
+            line_width=line_width,
+            zorder=3,
+        )
+
+        self._quotes_n = quotes_n
+        self._atr_n = atr_n
+        self._m = m
+
+    def _calculate(
+        self,
+    ) -> List[pd.DataFrame]:
+        mean = (
+            self._quotes.loc[:, "close"].ewm(span=self._quotes_n, adjust=False).mean()
+        )
+
+        high_low = self._quotes.loc[:, "high"] - self._quotes.loc[:, "low"]
+        high_close = np.abs(
+            self._quotes.loc[:, "high"] - self._quotes.loc[:, "close"].shift()
+        )
+        low_close = np.abs(
+            self._quotes.loc[:, "low"] - self._quotes.loc[:, "close"].shift()
+        )
+
+        ranges = pd.concat([high_low, high_close, low_close], axis=1)
+        true_range = np.max(ranges, axis=1)
+
+        atr = true_range.rolling(self._atr_n).sum() / self._atr_n
+
+        return [
+            mean + (atr * self._m),
+            mean + (atr * -self._m),
+        ]
