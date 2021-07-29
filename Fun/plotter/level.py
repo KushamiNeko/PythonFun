@@ -88,15 +88,22 @@ class Level(VolatilitySource, Plotter):
         ha = "right"
 
         if va == "bottom":
-            self._plot_standard_deviation(ax=ax, x=x, y=y, ha=ha, va=va, ending="\n\n")
-            self._plot_volatility_level(ax=ax, x=x, y=y, ha=ha, va=va, ending="\n")
-            self._plot_moving_average_distance(ax=ax, x=x, y=y, ha=ha, va=va)
+            # self._plot_standard_deviation(ax=ax, x=x, y=y, ha=ha, va=va, ending="\n\n")
+            # self._plot_volatility_level(ax=ax, x=x, y=y, ha=ha, va=va, ending="\n")
+            # self._plot_average_true_range(ax=ax, x=x, y=y, ha=ha, va=va, ending="\n")
+            # self._plot_moving_average_distance(ax=ax, x=x, y=y, ha=ha, va=va)
+
+            self._plot_average_true_range(ax=ax, x=x, y=y, ha=ha, va=va)
+
         else:
-            self._plot_standard_deviation(ax=ax, x=x, y=y, ha=ha, va=va)
-            self._plot_volatility_level(ax=ax, x=x, y=y, ha=ha, va=va, starting="\n")
-            self._plot_moving_average_distance(
-                ax=ax, x=x, y=y, ha=ha, va=va, starting="\n\n"
-            )
+            self._plot_average_true_range(ax=ax, x=x, y=y, ha=ha, va=va)
+
+            # self._plot_standard_deviation(ax=ax, x=x, y=y, ha=ha, va=va)
+            # self._plot_volatility_level(ax=ax, x=x, y=y, ha=ha, va=va, starting="\n")
+            # self._plot_average_true_range(ax=ax, x=x, y=y, ha=ha, va=va, starting="\n")
+            # self._plot_moving_average_distance(
+            # ax=ax, x=x, y=y, ha=ha, va=va, starting="\n\n"
+            # )
 
     def _plot_standard_deviation(
         self,
@@ -227,6 +234,43 @@ class Level(VolatilitySource, Plotter):
             y,
             f"{starting}{self._vix_symbol.upper()}: {value:.2f}{ending}",
             color=color,
+            fontproperties=self._font_properties,
+            ha=ha,
+            va=va,
+        )
+
+    def _plot_average_true_range(
+        self,
+        ax: axes.Axes,
+        x: float,
+        y: float,
+        ha: str,
+        va: str,
+        n: int = 10,
+        yellow_threshold: float = 22.5,
+        red_threshold: float = 45.0,
+        starting: str = "",
+        ending: str = "",
+    ):
+
+        high_low = self._quotes.loc[:, "high"] - self._quotes.loc[:, "low"]
+        high_close = np.abs(
+            self._quotes.loc[:, "high"] - self._quotes.loc[:, "close"].shift()
+        )
+        low_close = np.abs(
+            self._quotes.loc[:, "low"] - self._quotes.loc[:, "close"].shift()
+        )
+
+        ranges = pd.concat([high_low, high_close, low_close], axis=1)
+        true_range = np.max(ranges, axis=1)
+
+        atr = true_range.rolling(n).sum() / n
+
+        ax.text(
+            x,
+            y,
+            f"{starting}ATR: {atr.iloc[-1]:.2f}{ending}",
+            color=self._color_yellow,
             fontproperties=self._font_properties,
             ha=ha,
             va=va,
