@@ -14,6 +14,7 @@ class CandleSticks(Plotter):
             color_up: str,
             color_down: str,
             color_unchanged: str,
+            zorder: int = 5,
     ):
         self._quotes = quotes
         self._shadow_width = shadow_width
@@ -24,6 +25,8 @@ class CandleSticks(Plotter):
         self._color_up = color_up
         self._color_down = color_down
         self._color_unchanged = color_unchanged
+
+        self._zorder = zorder
 
     def _minimum_height(self) -> float:
         ratio = 0.001
@@ -101,5 +104,5 @@ class CandleSticks(Plotter):
             bodies[index] = body
             shadows[index] = shadow
 
-        ax.add_collection(PatchCollection(bodies, match_original=True, zorder=5))
-        ax.add_collection(PatchCollection(shadows, match_original=True, zorder=5))
+        ax.add_collection(PatchCollection(bodies, match_original=True, zorder=self._zorder))
+        ax.add_collection(PatchCollection(shadows, match_original=True, zorder=self._zorder))

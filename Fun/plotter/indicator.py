@@ -76,6 +76,7 @@ class SimpleMovingAverage(Indicator):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
+        zorder: int = 7,
     ) -> None:
         super().__init__(
             quotes=quotes,
@@ -84,6 +85,7 @@ class SimpleMovingAverage(Indicator):
             line_color=line_color,
             line_alpha=line_alpha,
             line_width=line_width,
+            zorder=zorder,
         )
 
         self._n = n
@@ -102,6 +104,7 @@ class ExponentialMovingAverage(Indicator):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
+        zorder: int = 7,
     ) -> None:
         super().__init__(
             quotes=quotes,
@@ -110,6 +113,7 @@ class ExponentialMovingAverage(Indicator):
             line_color=line_color,
             line_alpha=line_alpha,
             line_width=line_width,
+            zorder=zorder,
         )
 
         self._n = n
@@ -129,6 +133,7 @@ class SimpleMovingAverageEnvelope(Indicator):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
+        zorder: int = 3,
     ) -> None:
         super().__init__(
             quotes=quotes,
@@ -137,7 +142,7 @@ class SimpleMovingAverageEnvelope(Indicator):
             line_color=line_color,
             line_alpha=line_alpha,
             line_width=line_width,
-            zorder=3,
+            zorder=zorder,
         )
 
         self._n = n
@@ -165,6 +170,7 @@ class ExponentialMovingAverageEnvelope(Indicator):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
+        zorder: int = 3,
     ) -> None:
         super().__init__(
             quotes=quotes,
@@ -173,7 +179,7 @@ class ExponentialMovingAverageEnvelope(Indicator):
             line_color=line_color,
             line_alpha=line_alpha,
             line_width=line_width,
-            zorder=3,
+            zorder=zorder,
         )
 
         self._n = n
@@ -201,6 +207,7 @@ class BollingerBand(Indicator):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
+        zorder: int = 3,
     ) -> None:
         super().__init__(
             quotes=quotes,
@@ -209,7 +216,7 @@ class BollingerBand(Indicator):
             line_color=line_color,
             line_alpha=line_alpha,
             line_width=line_width,
-            zorder=3,
+            zorder=zorder,
         )
 
         self._n = n
@@ -323,6 +330,7 @@ class KeltnerChannels(Indicator):
         line_color: str = "k",
         line_alpha: float = 1.0,
         line_width: float = 10.0,
+        zorder: int = 3,
     ) -> None:
         super().__init__(
             quotes=quotes,
@@ -331,7 +339,7 @@ class KeltnerChannels(Indicator):
             line_color=line_color,
             line_alpha=line_alpha,
             line_width=line_width,
-            zorder=3,
+            zorder=zorder,
         )
 
         self._quotes_n = quotes_n

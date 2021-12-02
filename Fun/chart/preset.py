@@ -205,7 +205,12 @@ class CandleSticksPreset:
 
         src: Optional[DataSource] = None
 
-        if self._symbol in ("vix", "vxn", "ovx", "gvz"):
+        if self._symbol in (
+            # "vix",
+            # "vxn",
+            "ovx",
+            "gvz",
+        ):
             src = Yahoo()
 
         elif self._symbol in ("rut", "sml", "dji"):
@@ -222,6 +227,8 @@ class CandleSticksPreset:
 
         elif self._symbol in (
             # "usd",
+            "vix",
+            "vxn",
             "vstx",
             "dxy",
             "jpyusd",
@@ -766,6 +773,10 @@ class KushamiNekoController(PresetController):
             if self._parameters.get("EXMovingAverages", "").lower() == "true":
                 moving_average_class = ExponentialMovingAverage
 
+            moving_average_zorder = 3
+            if self._parameters.get("MovingAverageFirst", "").lower() == "true":
+                moving_average_zorder = 7
+
             if self._parameters.get("MovingAverages", "").lower() == "true":
                 plotters.extend(
                     [
@@ -777,6 +788,17 @@ class KushamiNekoController(PresetController):
                             line_color=self.get_theme().get_color("sma0"),
                             line_alpha=self.get_theme().get_alpha("sma"),
                             line_width=self._setting.linewidth() * 1.5,
+                            zorder=moving_average_zorder,
+                        ),
+                        moving_average_class(
+                            n=10 * moving_average_multiplier,
+                            quotes=self._cache.full_quotes(),
+                            slice_start=self._cache.quotes().index[0],
+                            slice_end=self._cache.quotes().index[-1],
+                            line_color=self.get_theme().get_color("sma6"),
+                            line_alpha=self.get_theme().get_alpha("sma"),
+                            line_width=self._setting.linewidth() * 1.5,
+                            zorder=moving_average_zorder,
                         ),
                         moving_average_class(
                             n=20 * moving_average_multiplier,
@@ -786,6 +808,7 @@ class KushamiNekoController(PresetController):
                             line_color=self.get_theme().get_color("sma1"),
                             line_alpha=self.get_theme().get_alpha("sma"),
                             line_width=self._setting.linewidth() * 1.5,
+                            zorder=moving_average_zorder,
                         ),
                         moving_average_class(
                             n=60 * moving_average_multiplier,
@@ -795,22 +818,23 @@ class KushamiNekoController(PresetController):
                             line_color=self.get_theme().get_color("sma2"),
                             line_alpha=self.get_theme().get_alpha("sma"),
                             line_width=self._setting.linewidth() * 1.5,
+                            zorder=moving_average_zorder,
                         ),
                     ]
                 )
 
-            if self._parameters.get("MovingAverages10", "").lower() == "true":
-                plotters.append(
-                    moving_average_class(
-                        n=10 * moving_average_multiplier,
-                        quotes=self._cache.full_quotes(),
-                        slice_start=self._cache.quotes().index[0],
-                        slice_end=self._cache.quotes().index[-1],
-                        line_color=self.get_theme().get_color("sma6"),
-                        line_alpha=self.get_theme().get_alpha("sma"),
-                        line_width=self._setting.linewidth() * 1.5,
-                    ),
-                )
+            # if self._parameters.get("MovingAverages10", "").lower() == "true":
+            #     plotters.append(
+            #         moving_average_class(
+            #             n=10 * moving_average_multiplier,
+            #             quotes=self._cache.full_quotes(),
+            #             slice_start=self._cache.quotes().index[0],
+            #             slice_end=self._cache.quotes().index[-1],
+            #             line_color=self.get_theme().get_color("sma6"),
+            #             line_alpha=self.get_theme().get_alpha("sma"),
+            #             line_width=self._setting.linewidth() * 1.5,
+            #         ),
+            #     )
 
             if self._parameters.get("EXMovingAverages10", "").lower() == "true":
                 plotters.append(
@@ -954,18 +978,53 @@ class KushamiNekoController(PresetController):
                 )
 
             if self._parameters.get("KeltnerChannels", "").lower() == "true":
-                plotters.append(
-                    KeltnerChannels(
-                        quotes_n=10,
-                        atr_n=10,
-                        m=1.5,
-                        quotes=self._cache.full_quotes(),
-                        slice_start=self._cache.quotes().index[0],
-                        slice_end=self._cache.quotes().index[-1],
-                        line_color=self.get_theme().get_color("bb0"),
-                        line_alpha=0.6,
-                        line_width=self._setting.linewidth(),
-                    )
+                plotters.extend(
+                    [
+                        KeltnerChannels(
+                            quotes_n=10,
+                            atr_n=10,
+                            m=1.5,
+                            quotes=self._cache.full_quotes(),
+                            slice_start=self._cache.quotes().index[0],
+                            slice_end=self._cache.quotes().index[-1],
+                            line_color=self.get_theme().get_color("bb0"),
+                            line_alpha=0.6,
+                            line_width=self._setting.linewidth(),
+                        ),
+                        KeltnerChannels(
+                            quotes_n=10,
+                            atr_n=10,
+                            m=2,
+                            quotes=self._cache.full_quotes(),
+                            slice_start=self._cache.quotes().index[0],
+                            slice_end=self._cache.quotes().index[-1],
+                            line_color=self.get_theme().get_color("bb1"),
+                            line_alpha=0.6,
+                            line_width=self._setting.linewidth(),
+                        ),
+                        KeltnerChannels(
+                            quotes_n=10,
+                            atr_n=10,
+                            m=2.5,
+                            quotes=self._cache.full_quotes(),
+                            slice_start=self._cache.quotes().index[0],
+                            slice_end=self._cache.quotes().index[-1],
+                            line_color=self.get_theme().get_color("bb2"),
+                            line_alpha=0.6,
+                            line_width=self._setting.linewidth(),
+                        ),
+                        KeltnerChannels(
+                            quotes_n=10,
+                            atr_n=10,
+                            m=3,
+                            quotes=self._cache.full_quotes(),
+                            slice_start=self._cache.quotes().index[0],
+                            slice_end=self._cache.quotes().index[-1],
+                            line_color=self.get_theme().get_color("bb3"),
+                            line_alpha=0.6,
+                            line_width=self._setting.linewidth(),
+                        ),
+                    ]
                 )
 
             if self._parameters.get("Studies", "").lower() == "true":

@@ -29,7 +29,8 @@ def read_notes(
     # note_regex = r"^([$#%@&]*)\s*(Entrance|Exit|Study):*\s*(\d{4}-*\d{2}-*\d{2})(?:[T\s](\d{2}:\d{2})\s*[~-]\s*(\d{2}:\d{2}))*$"
     # note_regex = r"^\s*([!¥$#%@&+?*X]*)\s*(Entrance|Exit|Note|Study|Long|Short|Close):*\s*(\d{4}-*\d{2}-*\d{2})(?:[T\s](\d{2}:\d{2})\s*[~-]\s*(\d{2}:\d{2}))*\s*(?:\s*@\s*([\d'.]+)\s*\$\s*([LSXlsx]\d+))*$"
     # note_regex = r"^\s*([!¥$€£#%@&+?*X]*)\s*(Entrance|Exit|Note|Study|Long|Short|Close):*\s*(\d{4}-*\d{2}-*\d{2})(?:[T\s](\d{2}:\d{2})\s*(?:[~-]\s*(\d{2}:\d{2}))*)*\s*(?:\s*@\s*([\d'.]+)\s*\$\s*([LSXlsx]\d+))*$"
-    note_regex = r"^\s*([!¥$€£#%@&+?*X]*)\s*(Entrance|Exit|Note|Study|Long|Short|Close):*\s*(\d{4}-*\d{2}-*\d{2})(?:[T\s](\d{2}:\d{2})\s*(?:[~-]\s*(\d{2}:\d{2}))*)*\s*(?:\s*@\s*([\d'.]+)\s*\$\s*([LSXlsx]\d+))*\s*([#%]\s*[-0-9.]+)*\s*$"
+    # note_regex = r"^\s*([!¥$€£#%@&+?*X]*)\s*(Entrance|Exit|Note|Study|Long|Short|Close):*\s*(\d{4}-*\d{2}-*\d{2})(?:[T\s](\d{2}:\d{2})\s*(?:[~-]\s*(\d{2}:\d{2}))*)*\s*(?:\s*@\s*([\d'.]+)\s*\$\s*([LSXlsx]\d+))*\s*([#%]\s*[-0-9.]+)*\s*$"
+    note_regex = r"^\s*([!¥$€£#%@&+?*XLS]*)\s*(Entrance|Exit|Note|Study|Long|Short|Close)*:*\s*(\d{4}-*\d{2}-*\d{2})(?:[T\s](\d{2}:\d{2})\s*(?:[~-]\s*(\d{2}:\d{2}))*)*\s*(?:\s*@\s*([\d'.]+)\s*\$\s*([LSXlsx]\d+))*\s*([#%]\s*[-0-9.]+)*\s*$"
 
     fs = os.listdir(notes_root)
     fs.sort()
@@ -83,8 +84,14 @@ def read_notes(
                 else:
                     dt = datetime.strptime(date, "%Y%m%d")
 
+                if frequency == INTRADAY_30MINUTES:
+                    if dt.minute == 15:
+                        dt = dt.replace(minute=0, second=0)
+                    if dt.minute == 45:
+                        dt = dt.replace(minute=30, second=0)
+
                 if frequency == INTRADAY_60MINUTES:
-                    pass
+                    dt = dt.replace(minute=0, second=0)
 
                 elif frequency == DAILY or frequency == WEEKLY:
                     if dt.hour > 16:
