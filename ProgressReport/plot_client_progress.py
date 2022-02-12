@@ -4,7 +4,7 @@ import plotter
 
 # %%
 
-progress = [90, 90, 85, 85]
+progress = [95, 95, 95, 95]
 labels = ["Components", "Layouts", "Pages", "Services"]
 color = "#1976D2"
 
@@ -20,8 +20,8 @@ plotter.plot_progress(
 
 # %%
 
-progress = [15]
-labels = ["View Models"]
+progress = [95, 95]
+labels = ["View Models", "Processors"]
 color = "#FFA000"
 
 # %%

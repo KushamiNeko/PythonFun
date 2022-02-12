@@ -30,7 +30,7 @@ def plot_progress(
     bar_width: float = 0.5,
     y_text_offset: float = 1.0,
     figsize: Tuple[int, int] = (8, 6),
-    output_file: str = "output.png"
+    output_file: str = "output.png",
 ) -> None:
 
     assert len(progress) == len(labels)
@@ -77,3 +77,60 @@ def plot_progress(
 
     plt.savefig(output_file, facecolor="w", dpi=300)
 
+
+def plot_progress_horizontal(
+    progress: List[float],
+    labels: List[str],
+    color: str,
+    fig_title: str = None,
+    bar_width: float = 0.5,
+    y_text_offset: float = 1,
+    figsize: Tuple[int, int] = (8, 6),
+    output_file: str = "output.png",
+) -> None:
+
+    assert len(progress) == len(labels)
+
+    fig, ax = plt.subplots(
+        figsize=figsize,
+        facecolor="w",
+        tight_layout=True,
+    )
+
+    for i in range(len(progress)):
+        x = i
+        y = progress[i] + y_text_offset
+        s = progress[i]
+
+        ax.text(
+            y,
+            x,
+            f"{s}%",
+            ha="left",
+            va="center",
+            fontproperties=get_font(12),
+        )
+
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    ys = np.arange(len(progress))
+
+    ax.set_xticks(
+        [0, 95], labels=["2021-12-01", "2021-12-31"], fontproperties=get_font(14)
+    )
+    ax.set_yticks(ys, labels=labels, fontproperties=get_font(14))
+
+    ax.set_xlim(left=0, right=101)
+    ax.set_ylim(bottom=-1, top=len(progress))
+
+    ax.barh(ys, progress, align="center", height=bar_width, color=color)
+
+    # ax.grid()
+
+    ax.autoscale_view()
+
+    if fig_title is not None:
+        plt.title(fig_title, fontproperties=get_font(24))
+
+    plt.savefig(output_file, facecolor="w", dpi=300)

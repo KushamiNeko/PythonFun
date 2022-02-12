@@ -4,11 +4,15 @@ import pandas as pd
 
 # %%
 
-df1 = pd.read_csv("data/100%/1.csv")
-df2 = pd.read_csv("data/100%/2.csv")
-df3 = pd.read_csv("data/100%/3.csv")
-
+df1 = pd.read_csv("data/SectorAndIndustry/100%/1.csv")
+df2 = pd.read_csv("data/SectorAndIndustry/100%/2.csv")
+df3 = pd.read_csv("data/SectorAndIndustry/100%/3.csv")
 df = df1.append(df2).append(df3)
+
+# df1 = pd.read_csv("data/SectorAndIndustry/200%/1.csv")
+# df2 = pd.read_csv("data/SectorAndIndustry/200%/2.csv")
+# df = df1.append(df2)
+
 df = df.reset_index()
 df
 

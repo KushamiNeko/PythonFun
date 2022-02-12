@@ -4,10 +4,15 @@ import pandas as pd
 
 # %%
 
-df1 = pd.read_csv("data/Focus/3.csv")
-df2 = pd.read_csv("data/Focus/4.csv")
+# folder = "Tech Focus"
+folder = "Value Focus"
 
-df = df1.append(df2)
+df1 = pd.read_csv(f"data/{folder}/1.csv")
+df = df1
+
+# df2 = pd.read_csv(f"data/{folder}/2.csv")
+# df = df1.append(df2)
+
 df = df.reset_index()
 
 df
@@ -33,7 +38,8 @@ df
 
 # %%
 
-df = df.sort_values("Sales 1-Year Chg (%)", ascending=False)
+# df = df.sort_values("Sales 1-Year Chg (%)", ascending=False)
+df = df.sort_values("Sales 1Y Chg (%)", ascending=False)
 df
 
 # %%
@@ -58,7 +64,7 @@ output = ",".join(symbols)
 
 # %%
 
-with open("export/Focus/output.txt", "w") as f:
+with open(f"export/{folder}/output.txt", "w") as f:
     f.write(output)
 
 # %%
